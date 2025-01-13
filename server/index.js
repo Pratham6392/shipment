@@ -3,8 +3,10 @@ const axios = require("axios");
 const PDFDocument = require("pdfkit");
 const fs = require("fs");
 const cors = require("cors");
+const dotenv = require("dotenv");
 
 const app = express();
+dotenv.config();
 
 app.use(cors({
   origin: 'http://localhost:5173',
@@ -204,4 +206,5 @@ app.post(`${baseURL}/generate-shipping-label`, async (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
+  console.log(baseURL)
 });
