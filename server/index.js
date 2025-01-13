@@ -14,7 +14,9 @@ app.use(cors({
 
 app.use(express.json());
 
-app.post("/generate-shipping-label", async (req, res) => {
+const baseURL = process.env.API_BASE_URL || 'http://localhost:3000';
+
+app.post(`${baseURL}/generate-shipping-label`, async (req, res) => {
   const { waybill } = req.body;
 
   if (!waybill) {

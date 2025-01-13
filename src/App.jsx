@@ -38,14 +38,16 @@ function App() {
     setError(null);
 
     try {
-      const response = await axios.post('/api/generate-shipping-label', {
+      const response = await axios.post('/generate-shipping-label', {
         waybill: orderDetails.waybillId
       }, {
-        responseType: 'blob'
+        responseType: 'blob' // Important for handling PDF download
       });
 
       // Create a blob from the PDF stream
       const blob = new Blob([response.data], { type: 'application/pdf' });
+      
+      // Create a link element and trigger download
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
@@ -70,6 +72,7 @@ function App() {
         </Typography>
 
         <Grid container spacing={3}>
+          {/* Order Details Form */}
           <Grid item xs={12} md={6}>
             <Paper elevation={3} sx={{ p: 3 }}>
               <Typography variant="h6" gutterBottom>
@@ -113,6 +116,7 @@ function App() {
             </Paper>
           </Grid>
 
+          {/* Order Summary */}
           <Grid item xs={12} md={6}>
             <Card elevation={3}>
               <CardContent>
@@ -131,6 +135,7 @@ function App() {
         </Grid>
       </Box>
 
+      {/* Error Snackbar */}
       <Snackbar 
         open={!!error} 
         autoHideDuration={6000} 
