@@ -16,7 +16,7 @@
   "routes": [
     {
       "src": "/generate-shipping-label",
-      "dest": "shipment/api/$1"
+      "dest": "/api/$1"
     },
     {
       "src": "/(.*)",
