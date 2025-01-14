@@ -24,10 +24,7 @@
       "src": "/server/(.*)",
       "dest": "server/index.js"
     },
-    {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    },
+   
     {
       "src": ".*",
       "dest": "/index.html"
