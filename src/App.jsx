@@ -37,7 +37,7 @@ function App() {
     e.preventDefault();
     setLoading(true);
     setError(null);
-  const  baseURL = process.env.API_BASE_URL || 'http://localhost:3000';
+ 
     try {
       const response = await axios.post(`/api/generate-shipping-label`, {
         waybill: orderDetails.waybillId
