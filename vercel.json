@@ -1,14 +1,19 @@
 {
   "version": 2,
-
-  "routes": [
+  "builds": [
     {
-      "src": "/generate-shipping-label",
-      "dest": "/api/$1"
+      "src": "dist/index.html",
+      "use": "@vercel/static"
     },
     {
+      "src": "dist/assets/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/dist/index.html"
     }
   ]
 }
