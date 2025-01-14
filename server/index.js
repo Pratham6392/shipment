@@ -16,9 +16,9 @@ app.use(cors({
 
 app.use(express.json());
 
-const baseURL = process.env.API_BASE_URL || 'http://localhost:3000';
+// const baseURL = process.env.API_BASE_URL || 'http://localhost:3000';
 
-app.post(`${baseURL}/generate-shipping-label`, async (req, res) => {
+app.post("https://shipment-sand.vercel.app/generate-shipping-label/generate-shipping-label", async (req, res) => {
   const { waybill } = req.body;
 
   if (!waybill) {
