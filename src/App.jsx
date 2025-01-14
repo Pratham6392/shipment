@@ -38,7 +38,7 @@ function App() {
     setError(null);
 
     try {
-      const response = await axios.post('/api/generate-shipping-label', {
+      const response = await axios.post('/generate-shipping-label', {
         waybill: orderDetails.waybillId
       }, {
         responseType: 'blob' // Important for handling PDF download
