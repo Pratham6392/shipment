@@ -24,10 +24,16 @@
       "src": "/server/(.*)",
       "dest": "server/index.js"
     },
-   
     {
-      "src": ".*",
-      "dest": "/index.html"
+      "handle": "filesystem"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/dist/assets/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/index.html"
     }
   ]
 }

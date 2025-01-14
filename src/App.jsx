@@ -15,6 +15,7 @@ import {
 } from '@mui/material';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import axios from 'axios';
+import dotenv from 'dotenv';
 
 function App() {
   const [orderDetails, setOrderDetails] = useState({
@@ -36,9 +37,9 @@ function App() {
     e.preventDefault();
     setLoading(true);
     setError(null);
-
+  const  baseURL = process.env.API_BASE_URL || 'http://localhost:3000';
     try {
-      const response = await axios.post('/api/generate-shipping-label', {
+      const response = await axios.post(`${baseURL}/api/generate-shipping-label`, {
         waybill: orderDetails.waybillId
       }, {
         responseType: 'blob' // Important for handling PDF download
